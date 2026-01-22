@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
+import L from 'leaflet';
+
+// Fix for default Leaflet markers in React/Webpack/ESM environments
+const fixLeafletIcon = () => {
+  delete (L.Icon.Default.prototype as any)._getIconUrl;
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  });
+};
 
 const Footer: React.FC = () => {
+  useEffect(() => {
+    fixLeafletIcon();
+  }, []);
+
+  const position: [number, number] = [43.7967, -79.5186]; // Husky Vaughan Location
+  const serviceRadius = 25000; // 25km radius covers GTA
+
   return (
     <footer className="bg-slate-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -53,16 +72,37 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Map Embed (Placeholder) */}
-          <div className="rounded-xl overflow-hidden h-48 bg-slate-800 relative group cursor-pointer">
-            <img 
-              src="https://picsum.photos/400/300" 
-              alt="Map" 
-              className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-               <span className="bg-black/50 px-4 py-2 rounded-lg backdrop-blur-sm text-sm font-bold">View Service Area</span>
-            </div>
+          {/* Interactive Map */}
+          <div className="rounded-xl overflow-hidden h-64 bg-slate-800 relative z-0 border border-slate-700 shadow-lg">
+             {/* MapContainer is not SSR compatible in some frameworks but fine here in SPA */}
+             <MapContainer 
+               center={position} 
+               zoom={10} 
+               scrollWheelZoom={false} 
+               className="h-full w-full"
+               attributionControl={false}
+             >
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+                />
+                <Marker position={position}>
+                  <Popup>
+                    <div className="text-slate-900 font-sans">
+                      <strong>Husky Heating & Air Conditioning</strong><br/>
+                      Vaughan HQ
+                    </div>
+                  </Popup>
+                </Marker>
+                <Circle 
+                  center={position} 
+                  pathOptions={{ fillColor: '#007cba', color: '#007cba', opacity: 0.5, fillOpacity: 0.2 }} 
+                  radius={serviceRadius} 
+                />
+             </MapContainer>
+             <div className="absolute bottom-2 right-2 z-[400] bg-white/90 px-2 py-1 rounded text-[10px] text-slate-500 pointer-events-none">
+               Service Area Highlighted
+             </div>
           </div>
         </div>
 
