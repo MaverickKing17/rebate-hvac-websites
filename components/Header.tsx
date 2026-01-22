@@ -19,6 +19,11 @@ const Header: React.FC<HeaderProps> = ({ location, setLocation }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <>
       {/* Top Bar - Utility */}
@@ -76,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ location, setLocation }) => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <button className="bg-husky-red text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-red-500/30 hover:bg-red-700 hover:scale-105 transition-all flex items-center">
+            <button onClick={scrollToContact} className="bg-husky-red text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-red-500/30 hover:bg-red-700 hover:scale-105 transition-all flex items-center">
               Get Free Quote
               <ArrowRight size={16} className="ml-2" />
             </button>
@@ -98,7 +103,7 @@ const Header: React.FC<HeaderProps> = ({ location, setLocation }) => {
             <a href="#rebates" className="text-lg font-medium p-2 border-b border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>Rebates</a>
             <a href="#timeline" className="text-lg font-medium p-2 border-b border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>About Us</a>
             <a href="#testimonials" className="text-lg font-medium p-2 border-b border-gray-100" onClick={() => setIsMobileMenuOpen(false)}>Reviews</a>
-            <button className="bg-husky-red text-white w-full py-3 rounded-xl font-bold text-lg shadow-md">
+            <button onClick={scrollToContact} className="bg-husky-red text-white w-full py-3 rounded-xl font-bold text-lg shadow-md">
               Get Free Quote
             </button>
           </div>

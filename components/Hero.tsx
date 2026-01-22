@@ -6,6 +6,10 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ location }) => {
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative pt-12 pb-20 lg:pt-24 lg:pb-32 overflow-hidden">
       {/* Background Mesh Gradient */}
@@ -41,10 +45,16 @@ const Hero: React.FC<HeroProps> = ({ location }) => {
 
           {/* CTA Group */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="w-full sm:w-auto px-8 py-4 bg-husky-blue text-white rounded-xl font-bold text-lg shadow-xl shadow-blue-500/30 hover:bg-husky-darkBlue hover:-translate-y-1 transition-all duration-300">
+            <button 
+              onClick={() => scrollTo('contact')}
+              className="w-full sm:w-auto px-8 py-4 bg-husky-blue text-white rounded-xl font-bold text-lg shadow-xl shadow-blue-500/30 hover:bg-husky-darkBlue hover:-translate-y-1 transition-all duration-300"
+            >
               Book Repair / Quote
             </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-white text-husky-blue border-2 border-husky-blue rounded-xl font-bold text-lg hover:bg-blue-50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
+            <button 
+              onClick={() => scrollTo('rebates')}
+              className="w-full sm:w-auto px-8 py-4 bg-white text-husky-blue border-2 border-husky-blue rounded-xl font-bold text-lg hover:bg-blue-50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
+            >
               <Thermometer size={20} className="mr-2" />
               Check Rebates
             </button>

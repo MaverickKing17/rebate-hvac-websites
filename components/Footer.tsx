@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
   const serviceRadius = 35000; // 35km radius covers most of GTA
 
   return (
-    <footer className="bg-slate-900 text-white pt-16 pb-8">
+    <footer id="contact" className="bg-slate-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           
@@ -49,9 +49,9 @@ const Footer: React.FC = () => {
               Serving the GTA since 1974. We are committed to keeping your home comfortable in every season.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-husky-blue transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-husky-blue transition-colors"><Instagram size={20} /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-husky-blue transition-colors"><Twitter size={20} /></a>
+              <a href="javascript:void(0)" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-husky-blue transition-colors"><Facebook size={20} /></a>
+              <a href="javascript:void(0)" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-husky-blue transition-colors"><Instagram size={20} /></a>
+              <a href="javascript:void(0)" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-husky-blue transition-colors"><Twitter size={20} /></a>
             </div>
           </div>
 
@@ -59,11 +59,11 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-bold mb-6">Services</h4>
             <ul className="space-y-3 text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">Furnace Installation</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">AC Repair</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Heat Pumps</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Water Heaters</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Maintenance Plans</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Furnace Installation</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">AC Repair</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Heat Pumps</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Water Heaters</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Maintenance Plans</a></li>
             </ul>
           </div>
 
@@ -144,8 +144,8 @@ const Footer: React.FC = () => {
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
           <p>&copy; 2026 Husky Heating & Air Conditioning. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
+            <a href="javascript:void(0)" className="hover:text-white">Privacy Policy</a>
+            <a href="javascript:void(0)" className="hover:text-white">Terms of Service</a>
           </div>
         </div>
       </div>

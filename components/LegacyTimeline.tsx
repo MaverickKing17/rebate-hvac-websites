@@ -95,7 +95,10 @@ const LegacyTimeline: React.FC = () => {
 
           {/* Call to Action at bottom of timeline */}
           <div className="timeline-item opacity-0 translate-y-12 transition-all duration-1000 relative flex justify-center mt-12 pb-12">
-            <button className="bg-slate-900 text-white px-8 py-4 rounded-full font-bold shadow-2xl hover:bg-husky-blue hover:scale-105 transition-all flex items-center group">
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-slate-900 text-white px-8 py-4 rounded-full font-bold shadow-2xl hover:bg-husky-blue hover:scale-105 transition-all flex items-center group"
+            >
               Be Part of Our Future
               <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
             </button>

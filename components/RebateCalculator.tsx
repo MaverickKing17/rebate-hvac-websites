@@ -257,7 +257,10 @@ const RebateCalculator: React.FC = () => {
                     >
                       New Search
                     </button>
-                    <button className="py-3 bg-husky-orange text-white rounded-xl font-bold shadow-lg shadow-orange-500/30 hover:bg-orange-600 hover:-translate-y-1 transition-all flex items-center justify-center">
+                    <button 
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="py-3 bg-husky-orange text-white rounded-xl font-bold shadow-lg shadow-orange-500/30 hover:bg-orange-600 hover:-translate-y-1 transition-all flex items-center justify-center"
+                    >
                       Get Quote <ArrowRight size={18} className="ml-2" />
                     </button>
                   </div>

@@ -28,7 +28,7 @@ const Services: React.FC = () => {
               <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
               <p className="text-slate-500 mb-6 leading-relaxed">{service.description}</p>
               
-              <a href="#" className="inline-flex items-center text-husky-blue font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-husky-blue after:transition-all after:duration-300 hover:after:w-full">
+              <a href="#contact" className="inline-flex items-center text-husky-blue font-semibold relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-husky-blue after:transition-all after:duration-300 hover:after:w-full">
                 Learn More <ArrowUpRight size={16} className="ml-1" />
               </a>
             </div>
